@@ -101,3 +101,4 @@ changed
 changed again
 
 test conflict by master
+test conflict by feature_new
