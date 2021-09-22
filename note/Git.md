@@ -48,7 +48,9 @@
 >
 > ![image-20210922095615511](C:\Users\pc\AppData\Roaming\Typora\typora-user-images\image-20210922095615511.png)  
 >
-> `git granch -v`  ： 查看当前分支
+> `git branch -v`  ： 查看当前分支    
+>
+> `git branch -l`  :   查看所有分支
 >
 > `git checkout branch_name`  :   切换分支
 >
