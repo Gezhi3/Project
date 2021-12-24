@@ -1,6 +1,10 @@
-`cd /d/Git`  change dictionary
+**rpm**
 
-`pwd` 当前目录
+**sudo**
 
-ll  当前路径下所有的文件
+**yum**
+
+**wget**
+
+**apt**
 
