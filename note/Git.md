@@ -4,6 +4,8 @@
 
 > `git [command]`
 >
+> <img src="C:\Users\pc\AppData\Roaming\Typora\typora-user-images\image-20211224113123748.png" alt="image-20211224113123748" style="zoom:150%;" />
+>
 > ![image-20211223224520156](C:\Users\pc\AppData\Roaming\Typora\typora-user-images\image-20211223224520156.png)
 
 ### Git常见命令
@@ -111,4 +113,10 @@
 > ![image-20210922151216124](C:\Users\pc\AppData\Roaming\Typora\typora-user-images\image-20210922151216124.png)
 
 > 跨团队协作： 申请`Fork`，然后`pull request`
+
+**Git errot** :  Failed to connect to github.com port 443:connection timed out
+
+原因： 修改默认端口后，端口冲突
+
+解决方法： ``git config --global http.proxy http://127.0.0.1:7890` `git config --global http.proxy http://127.0.0.1:7890`  地址和端口号查看设置即可。
 
