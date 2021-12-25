@@ -1,519 +1,112 @@
-<p align="center">
-    <br/>
-    <a href="https://github.com/ziishaned/learn-regex">
-        <img src="https://i.imgur.com/bYwl7Vf.png" alt="Learn Regex">
-    </a>
-    <br /><br />
-    <p>
-        <a href="https://twitter.com/home?status=Learn%20regex%20the%20easy%20way%20by%20%40ziishaned%20http%3A//github.com/ziishaned/learn-regex">
-            <img src="https://img.shields.io/badge/twitter-tweet-blue.svg?style=flat-square"/>
-        </a>
-        <a href="https://twitter.com/ziishaned">
-            <img src="https://img.shields.io/badge/feedback-@ziishaned-blue.svg?style=flat-square" />
-        </a>
-    </p>
-</p>
-
-
-## 翻译：
-
-* [English](../README.md)
-* [Español](../translations/README-es.md)
-* [Français](../translations/README-fr.md)
-* [Português do Brasil](../translations/README-pt_BR.md)
-* [中文版](../translations/README-cn.md)
-* [日本語](../translations/README-ja.md)
-* [한국어](../translations/README-ko.md)
-* [Turkish](../translations/README-tr.md)
-* [Greek](../translations/README-gr.md)
-* [Magyar](../translations/README-hu.md)
-* [Polish](../translations/README-pl.md)
-* [Русский](../translations/README-ru.md)
-* [Tiếng Việt](../translations/README-vn.md)
-* [فارسی](../translations/README-fa.md)
-* [עברית](translations/README-he.md)
-
-## 什么是正则表达式？
-
-[![](https://img.shields.io/badge/-Download%20PDF%20-0a0a0a.svg?style=flat&colorA=0a0a0a)](https://gum.co/learn-regex)
-
-> 正则表达式是一组由字母和符号组成的特殊文本，它可以用来从文本中找出满足你想要的格式的句子。
-
-一个正则表达式是一种从左到右匹配主体字符串的模式。
-“Regular expression”这个词比较拗口，我们常使用缩写的术语“regex”或“regexp”。
-正则表达式可以从一个基础字符串中根据一定的匹配模式替换文本中的字符串、验证表单、提取字符串等等。
-
-想象你正在写一个应用，然后你想设定一个用户命名的规则，让用户名包含字符、数字、下划线和连字符，以及限制字符的个数，好让名字看起来没那么丑。
-我们使用以下正则表达式来验证一个用户名：
-
-<br/><br/>
-
-<p align="center">
-  <img src="../img/regexp-cn.png" alt="Regular expression">
-</p>
-
-以上的正则表达式可以接受 `john_doe`、`jo-hn_doe`、`john12_as`。
-但不匹配`Jo`，因为它包含了大写的字母而且太短了。
-
-目录
-=================
-
- * [1. 基本匹配](#1-基本匹配)
- * [2. 元字符](#2-元字符)
- 	* [2.1 点运算符 .](#21-点运算符-)
- 	* [2.2 字符集](#22-字符集)
-		* [2.2.1 否定字符集](#221-否定字符集)
-	* [2.3 重复次数](#23-重复次数)
-		* [2.3.1 * 号](#231--号)
-		* [2.3.2 + 号](#232--号)
-		* [2.3.3 ? 号](#233--号)
-	* [2.4 {} 号](#24--号)
-	* [2.5 (...) 特征标群](#25--特征标群)
-	* [2.6 | 或运算符](#26--或运算符)
-	* [2.7 转码特殊字符](#27-转码特殊字符)
-	* [2.8 锚点](#28-锚点)
-		* [2.8.1 ^ 号](#281--号)
-		* [2.8.2 $ 号](#282--号)
-* [3. 简写字符集](#3-简写字符集)
-* [4. 零宽度断言(前后预查)](#4-零宽度断言前后预查)
-	* [4.1 ?=... 正先行断言](#41--正先行断言)
-	* [4.2 ?!... 负先行断言](#42--负先行断言)
-	* [4.3 ?&lt;= ... 正后发断言](#43---正后发断言)
-	* [4.4 ?&lt;!... 负后发断言](#44--负后发断言)
-* [5. 标志](#5-标志)
-	* [5.1 忽略大小写（Case Insensitive）](#51-忽略大小写-case-insensitive)
-	* [5.2 全局搜索（Global search）](#52-全局搜索-global-search)
-	* [5.3 多行修饰符（Multiline）](#53-多行修饰符-multiline)
-* [额外补充](#额外补充)
-* [贡献](#贡献)
-* [许可证](#许可证)
-
-## 1. 基本匹配
-
-正则表达式其实就是在执行搜索时的格式，它由一些字母和数字组合而成。
-例如：一个正则表达式 `the`，它表示一个规则：由字母`t`开始，接着是`h`，再接着是`e`。
-
-<pre>
-"the" => The fat cat sat on <a href="#learn-regex"><strong>the</strong></a> mat.
-</pre>
-
-[在线练习](https://regex101.com/r/dmRygT/1)
-
-正则表达式`123`匹配字符串`123`。它逐个字符的与输入的正则表达式做比较。
+## 使用正则表达式
 
-正则表达式是大小写敏感的，所以`The`不会匹配`the`。
+正则表达式通常被用来检索或替换那些符合某个模式的文本内容，根据指定的匹配模式匹配文本中符合要求的特殊字符串。例如，从一个文本文件中提取电话号码，查找一篇文章中重复的单词或者替换用户输入的某些敏感词语等，这些地方都可以使用正则表达式。正则表达式强大而且灵活，可以应用于非常复杂的查询。
 
-<pre>
-"The" => <a href="#learn-regex"><strong>The</strong></a> fat cat sat on the mat.
-</pre>
+MySQL中使用REGEXP关键字指定正则表达式的字符匹配模式。下表列出了REGEXP操作符中常用字符匹配列表。
 
-[在线练习](https://regex101.com/r/1paXsy/1)
+![image-20210926151249943](D:\Learn\编程\【宋红康】MySQL数据库（安装基础高级优化）\01_课件\images\image-20210926151249943.png)
 
-## 2. 元字符
+**1. 查询以特定字符或字符串开头的记录**
+字符‘^’匹配以特定字符或者字符串开头的文本。
 
-正则表达式主要依赖于元字符。
-元字符不代表他们本身的字面意思，他们都有特殊的含义。一些元字符写在方括号中的时候有一些特殊的意思。以下是一些元字符的介绍：
+在fruits表中，查询f_name字段以字母‘b’开头的记录，SQL语句如下：
 
-|元字符|描述|
-|:----:|----|
-|.|句号匹配任意单个字符除了换行符。|
-|[ ]|字符种类。匹配方括号内的任意字符。|
-|[^ ]|否定的字符种类。匹配除了方括号里的任意字符|
-|*|匹配>=0个重复的在*号之前的字符。|
-|+|匹配>=1个重复的+号前的字符。
-|?|标记?之前的字符为可选.|
-|{n,m}|匹配num个大括号之前的字符或字符集 (n <= num <= m).|
-|(xyz)|字符集，匹配与 xyz 完全相等的字符串.|
-|&#124;|或运算符，匹配符号前或后的字符.|
-|&#92;|转义字符,用于匹配一些保留的字符 <code>[ ] ( ) { } . * + ? ^ $ \ &#124;</code>|
-|^|从开始行开始匹配.|
-|$|从末端开始匹配.|
+```mysql
+mysql> SELECT * FROM fruits WHERE f_name REGEXP '^b';
+```
 
-## 2.1 点运算符 `.`
+**2. 查询以特定字符或字符串结尾的记录**
+字符‘$’匹配以特定字符或者字符串结尾的文本。
 
-`.`是元字符中最简单的例子。
-`.`匹配任意单个字符，但不匹配换行符。
-例如，表达式`.ar`匹配一个任意字符后面跟着是`a`和`r`的字符串。
+在fruits表中，查询f_name字段以字母‘y’结尾的记录，SQL语句如下：
 
-<pre>
-".ar" => The <a href="#learn-regex"><strong>car</strong></a> <a href="#learn-regex"><strong>par</strong></a>ked in the <a href="#learn-regex"><strong>gar</strong></a>age.
-</pre>
+```mysql
+mysql> SELECT * FROM fruits WHERE f_name REGEXP 'y$';
+```
 
-[在线练习](https://regex101.com/r/xc9GkU/1)
+**3. 用符号"."来替代字符串中的任意一个字符**
+字符‘.’匹配任意一个字符。
+在fruits表中，查询f_name字段值包含字母‘a’与‘g’且两个字母之间只有一个字母的记录，SQL语句如下：
 
-## 2.2 字符集
+```mysql
+mysql> SELECT * FROM fruits WHERE f_name REGEXP 'a.g';
+```
 
-字符集也叫做字符类。
-方括号用来指定一个字符集。
-在方括号中使用连字符来指定字符集的范围。
-在方括号中的字符集不关心顺序。
-例如，表达式`[Tt]he` 匹配 `the` 和 `The`。
+**4. 使用"*"和"+"来匹配多个字符**
+星号‘*’匹配前面的字符任意多次，包括0次。加号‘+’匹配前面的字符至少一次。
 
-<pre>
-"[Tt]he" => <a href="#learn-regex"><strong>The</strong></a> car parked in <a href="#learn-regex"><strong>the</strong></a> garage.
-</pre>
+在fruits表中，查询f_name字段值以字母‘b’开头且‘b’后面出现字母‘a’的记录，SQL语句如下：
 
-[在线练习](https://regex101.com/r/2ITLQ4/1)
+```mysql
+mysql> SELECT * FROM fruits WHERE f_name REGEXP '^ba*';
+```
 
-方括号的句号就表示句号。
-表达式 `ar[.]` 匹配 `ar.`字符串
+在fruits表中，查询f_name字段值以字母‘b’开头且‘b’后面出现字母‘a’至少一次的记录，SQL语句如下：
 
-<pre>
-"ar[.]" => A garage is a good place to park a c<a href="#learn-regex"><strong>ar.</strong></a>
-</pre>
+```mysql
+mysql> SELECT * FROM fruits WHERE f_name REGEXP '^ba+';
+```
 
-[在线练习](https://regex101.com/r/wL3xtE/1)
+**5. 匹配指定字符串**
+正则表达式可以匹配指定字符串，只要这个字符串在查询文本中即可，如要匹配多个字符串，多个字符串之间使用分隔符‘|’隔开。
 
-### 2.2.1 否定字符集
+在fruits表中，查询f_name字段值包含字符串“on”的记录，SQL语句如下：
 
-一般来说 `^` 表示一个字符串的开头，但它用在一个方括号的开头的时候，它表示这个字符集是否定的。
-例如，表达式`[^c]ar` 匹配一个后面跟着`ar`的除了`c`的任意字符。
+```mysql
+mysql> SELECT * FROM fruits WHERE f_name REGEXP 'on';
+```
 
-<pre>
-"[^c]ar" => The car <a href="#learn-regex"><strong>par</strong></a>ked in the <a href="#learn-regex"><strong>gar</strong></a>age.
-</pre>
+在fruits表中，查询f_name字段值包含字符串“on”或者“ap”的记录，SQL语句如下：
 
-[在线练习](https://regex101.com/r/nNNlq3/1)
+```mysql
+mysql> SELECT * FROM fruits WHERE f_name REGEXP 'on|ap';
+```
 
-## 2.3 重复次数
+之前介绍过，LIKE运算符也可以匹配指定的字符串，但与REGEXP不同，LIKE匹配的字符串如果在文本中间出现，则找不到它，相应的行也不会返回。REGEXP在文本内进行匹配，如果被匹配的字符串在文本中出现，REGEXP将会找到它，相应的行也会被返回。对比结果如下所示。
 
-后面跟着元字符 `+`，`*` or `?` 的，用来指定匹配子模式的次数。
-这些元字符在不同的情况下有着不同的意思。
+在fruits表中，使用LIKE运算符查询f_name字段值为“on”的记录，SQL语句如下：
 
-### 2.3.1 `*` 号
+```mysql
+mysql> SELECT * FROM fruits WHERE f_name like 'on';
+Empty set(0.00 sec)
+```
 
-`*`号匹配 在`*`之前的字符出现`大于等于0`次。
-例如，表达式 `a*` 匹配0或更多个以a开头的字符。表达式`[a-z]*` 匹配一个行中所有以小写字母开头的字符串。
+**6. 匹配指定字符中的任意一个**
+方括号“[]”指定一个字符集合，只匹配其中任何一个字符，即为所查找的文本。
 
-<pre>
-"[a-z]*" => T<a href="#learn-regex"><strong>he</strong></a> <a href="#learn-regex"><strong>car</strong></a> <a href="#learn-regex"><strong>parked</strong></a> <a href="#learn-regex"><strong>in</strong></a> <a href="#learn-regex"><strong>the</strong></a> <a href="#learn-regex"><strong>garage</strong></a> #21.
-</pre>
+在fruits表中，查找f_name字段中包含字母‘o’或者‘t’的记录，SQL语句如下：
 
-[在线练习](https://regex101.com/r/7m8me5/1)
+```mysql
+mysql> SELECT * FROM fruits WHERE f_name REGEXP '[ot]';
+```
 
-`*`字符和`.`字符搭配可以匹配所有的字符`.*`。
-`*`和表示匹配空格的符号`\s`连起来用，如表达式`\s*cat\s*`匹配0或更多个空格开头和0或更多个空格结尾的cat字符串。
+在fruits表中，查询s_id字段中包含4、5或者6的记录，SQL语句如下：
 
-<pre>
-"\s*cat\s*" => The fat<a href="#learn-regex"><strong> cat </strong></a>sat on the con<a href="#learn-regex"><strong>cat</strong></a>enation.
-</pre>
+```mysql
+mysql> SELECT * FROM fruits WHERE s_id REGEXP '[456]';
+```
 
-[在线练习](https://regex101.com/r/gGrwuz/1)
+**7. 匹配指定字符以外的字符**
+`“[^字符集合]”`匹配不在指定集合中的任何字符。
 
-### 2.3.2 `+` 号
+在fruits表中，查询f_id字段中包含字母a~e和数字1~2以外字符的记录，SQL语句如下：
 
-`+`号匹配`+`号之前的字符出现 >=1 次。
-例如表达式`c.+t` 匹配以首字母`c`开头以`t`结尾，中间跟着至少一个字符的字符串。
+```mysql
+mysql> SELECT * FROM fruits WHERE f_id REGEXP '[^a-e1-2]';
+```
 
-<pre>
-"c.+t" => The fat <a href="#learn-regex"><strong>cat sat on the mat</strong></a>.
-</pre>
+**8. 使用{n,}或者{n,m}来指定字符串连续出现的次数**
+“字符串{n,}”表示至少匹配n次前面的字符；“字符串{n,m}”表示匹配前面的字符串不少于n次，不多于m次。例如，a{2,}表示字母a连续出现至少2次，也可以大于2次；a{2,4}表示字母a连续出现最少2次，最多不能超过4次。
 
-[在线练习](https://regex101.com/r/Dzf9Aa/1)
+在fruits表中，查询f_name字段值出现字母‘x’至少2次的记录，SQL语句如下：
 
-### 2.3.3 `?` 号
+```mysql
+mysql> SELECT * FROM fruits WHERE f_name REGEXP 'x{2,}';
+```
 
-在正则表达式中元字符 `?` 标记在符号前面的字符为可选，即出现 0 或 1 次。
-例如，表达式 `[T]?he` 匹配字符串 `he` 和 `The`。
+在fruits表中，查询f_name字段值出现字符串“ba”最少1次、最多3次的记录，SQL语句如下：
 
-<pre>
-"[T]he" => <a href="#learn-regex"><strong>The</strong></a> car is parked in the garage.
-</pre>
+```mysql
+mysql> SELECT * FROM fruits WHERE f_name REGEXP 'ba{1,3}';
+```
 
-[在线练习](https://regex101.com/r/cIg9zm/1)
-
-<pre>
-"[T]?he" => <a href="#learn-regex"><strong>The</strong></a> car is parked in t<a href="#learn-regex"><strong>he</strong></a> garage.
-</pre>
-
-[在线练习](https://regex101.com/r/kPpO2x/1)
-
-## 2.4 `{}` 号
-
-在正则表达式中 `{}` 是一个量词，常用来限定一个或一组字符可以重复出现的次数。
-例如， 表达式 `[0-9]{2,3}` 匹配最少 2 位最多 3 位 0~9 的数字。
-
-<pre>
-"[0-9]{2,3}" => The number was 9.<a href="#learn-regex"><strong>999</strong></a>7 but we rounded it off to <a href="#learn-regex"><strong>10</strong></a>.0.
-</pre>
-
-[在线练习](https://regex101.com/r/juM86s/1)
-
-我们可以省略第二个参数。
-例如，`[0-9]{2,}` 匹配至少两位 0~9 的数字。
-
-<pre>
-"[0-9]{2,}" => The number was 9.<a href="#learn-regex"><strong>9997</strong></a> but we rounded it off to <a href="#learn-regex"><strong>10</strong></a>.0.
-</pre>
-
-[在线练习](https://regex101.com/r/Gdy4w5/1)
-
-如果逗号也省略掉则表示重复固定的次数。
-例如，`[0-9]{3}` 匹配3位数字
-
-<pre>
-"[0-9]{3}" => The number was 9.<a href="#learn-regex"><strong>999</strong></a>7 but we rounded it off to 10.0.
-</pre>
-
-[在线练习](https://regex101.com/r/Sivu30/1)
-
-## 2.5 `(...)` 特征标群
-
-特征标群是一组写在 `(...)` 中的子模式。`(...)` 中包含的内容将会被看成一个整体，和数学中小括号（ ）的作用相同。例如, 表达式 `(ab)*` 匹配连续出现 0 或更多个 `ab`。如果没有使用 `(...)` ，那么表达式 `ab*` 将匹配连续出现 0 或更多个 `b` 。再比如之前说的 `{}` 是用来表示前面一个字符出现指定次数。但如果在 `{}` 前加上特征标群 `(...)` 则表示整个标群内的字符重复 N 次。
-
-
-我们还可以在 `()` 中用或字符 `|` 表示或。例如，`(c|g|p)ar` 匹配 `car` 或 `gar` 或 `par`.
-
-<pre>
-"(c|g|p)ar" => The <a href="#learn-regex"><strong>car</strong></a> is <a href="#learn-regex"><strong>par</strong></a>ked in the <a href="#learn-regex"><strong>gar</strong></a>age.
-</pre>
-
-[在线练习](https://regex101.com/r/tUxrBG/1)
-
-## 2.6 `|` 或运算符
-
-或运算符就表示或，用作判断条件。
-
-例如 `(T|t)he|car` 匹配 `(T|t)he` 或 `car`。
-
-<pre>
-"(T|t)he|car" => <a href="#learn-regex"><strong>The</strong></a> <a href="#learn-regex"><strong>car</strong></a> is parked in <a href="#learn-regex"><strong>the</strong></a> garage.
-</pre>
-
-[在线练习](https://regex101.com/r/fBXyX0/1)
-
-## 2.7 转码特殊字符
-
-反斜线 `\` 在表达式中用于转码紧跟其后的字符。用于指定 `{ } [ ] / \ + * . $ ^ | ?` 这些特殊字符。如果想要匹配这些特殊字符则要在其前面加上反斜线 `\`。
-
-例如 `.` 是用来匹配除换行符外的所有字符的。如果想要匹配句子中的 `.` 则要写成 `\.` 以下这个例子 `\.?`是选择性匹配`.`
-
-<pre>
-"(f|c|m)at\.?" => The <a href="#learn-regex"><strong>fat</strong></a> <a href="#learn-regex"><strong>cat</strong></a> sat on the <a href="#learn-regex"><strong>mat.</strong></a>
-</pre>
-
-[在线练习](https://regex101.com/r/DOc5Nu/1)
-
-## 2.8 锚点
-
-在正则表达式中，想要匹配指定开头或结尾的字符串就要使用到锚点。`^` 指定开头，`$` 指定结尾。
-
-### 2.8.1 `^` 号
-
-`^` 用来检查匹配的字符串是否在所匹配字符串的开头。
-
-例如，在 `abc` 中使用表达式 `^a` 会得到结果 `a`。但如果使用 `^b` 将匹配不到任何结果。因为在字符串 `abc` 中并不是以 `b` 开头。
-
-例如，`^(T|t)he` 匹配以 `The` 或 `the` 开头的字符串。
-
-<pre>
-"(T|t)he" => <a href="#learn-regex"><strong>The</strong></a> car is parked in <a href="#learn-regex"><strong>the</strong></a> garage.
-</pre>
-
-[在线练习](https://regex101.com/r/5ljjgB/1)
-
-<pre>
-"^(T|t)he" => <a href="#learn-regex"><strong>The</strong></a> car is parked in the garage.
-</pre>
-
-[在线练习](https://regex101.com/r/jXrKne/1)
-
-### 2.8.2 `$` 号
-
-同理于 `^` 号，`$` 号用来匹配字符是否是最后一个。
-
-例如，`(at\.)$` 匹配以 `at.` 结尾的字符串。
-
-<pre>
-"(at\.)" => The fat c<a href="#learn-regex"><strong>at.</strong></a> s<a href="#learn-regex"><strong>at.</strong></a> on the m<a href="#learn-regex"><strong>at.</strong></a>
-</pre>
-
-[在线练习](https://regex101.com/r/y4Au4D/1)
-
-<pre>
-"(at\.)$" => The fat cat. sat. on the m<a href="#learn-regex"><strong>at.</strong></a>
-</pre>
-
-[在线练习](https://regex101.com/r/t0AkOd/1)
-
-##  3. 简写字符集
-
-正则表达式提供一些常用的字符集简写。如下:
-
-|简写|描述|
-|:----:|----|
-|.|除换行符外的所有字符|
-|\w|匹配所有字母数字，等同于 `[a-zA-Z0-9_]`|
-|\W|匹配所有非字母数字，即符号，等同于： `[^\w]`|
-|\d|匹配数字： `[0-9]`|
-|\D|匹配非数字： `[^\d]`|
-|\s|匹配所有空格字符，等同于： `[\t\n\f\r\p{Z}]`|
-|\S|匹配所有非空格字符： `[^\s]`|
-|\f|匹配一个换页符|
-|\n|匹配一个换行符|
-|\r|匹配一个回车符|
-|\t|匹配一个制表符|
-|\v|匹配一个垂直制表符|
-|\p|匹配 CR/LF（等同于 `\r\n`），用来匹配 DOS 行终止符|
-
-## 4. 零宽度断言（前后预查）
-
-先行断言和后发断言都属于**非捕获簇**（不捕获文本 ，也不针对组合计进行计数）。
-先行断言用于判断所匹配的格式是否在另一个确定的格式之前，匹配结果不包含该确定格式（仅作为约束）。
-
-例如，我们想要获得所有跟在 `$` 符号后的数字，我们可以使用正后发断言 `(?<=\$)[0-9\.]*`。
-这个表达式匹配 `$` 开头，之后跟着 `0,1,2,3,4,5,6,7,8,9,.` 这些字符可以出现大于等于 0 次。
-
-零宽度断言如下：
-
-|符号|描述|
-|:----:|----|
-|?=|正先行断言-存在|
-|?!|负先行断言-排除|
-|?<=|正后发断言-存在|
-|?<!|负后发断言-排除|
-
-### 4.1 `?=...` 正先行断言
-
-`?=...` 正先行断言，表示第一部分表达式之后必须跟着 `?=...`定义的表达式。
-
-返回结果只包含满足匹配条件的第一部分表达式。
-定义一个正先行断言要使用 `()`。在括号内部使用一个问号和等号： `(?=...)`。
-
-正先行断言的内容写在括号中的等号后面。
-例如，表达式 `(T|t)he(?=\sfat)` 匹配 `The` 和 `the`，在括号中我们又定义了正先行断言 `(?=\sfat)` ，即 `The` 和 `the` 后面紧跟着 `(空格)fat`。
-
-<pre>
-"(T|t)he(?=\sfat)" => <a href="#learn-regex"><strong>The</strong></a> fat cat sat on the mat.
-</pre>
-
-[在线练习](https://regex101.com/r/IDDARt/1)
-
-### 4.2 `?!...` 负先行断言
-
-负先行断言 `?!` 用于筛选所有匹配结果，筛选条件为 其后不跟随着断言中定义的格式。
-`正先行断言`  定义和 `负先行断言` 一样，区别就是 `=` 替换成 `!` 也就是 `(?!...)`。
-
-表达式 `(T|t)he(?!\sfat)` 匹配 `The` 和 `the`，且其后不跟着 `(空格)fat`。
-
-<pre>
-"(T|t)he(?!\sfat)" => The fat cat sat on <a href="#learn-regex"><strong>the</strong></a> mat.
-</pre>
-
-[在线练习](https://regex101.com/r/V32Npg/1)
-
-### 4.3 `?<= ...` 正后发断言
-
-正后发断言 记作`(?<=...)` 用于筛选所有匹配结果，筛选条件为 其前跟随着断言中定义的格式。
-例如，表达式 `(?<=(T|t)he\s)(fat|mat)` 匹配 `fat` 和 `mat`，且其前跟着 `The` 或 `the`。
-
-<pre>
-"(?<=(T|t)he\s)(fat|mat)" => The <a href="#learn-regex"><strong>fat</strong></a> cat sat on the <a href="#learn-regex"><strong>mat</strong></a>.
-</pre>
-
-[在线练习](https://regex101.com/r/avH165/1)
-
-### 4.4 `?<!...` 负后发断言
-
-负后发断言 记作 `(?<!...)` 用于筛选所有匹配结果，筛选条件为 其前不跟随着断言中定义的格式。
-例如，表达式 `(?<!(T|t)he\s)(cat)` 匹配 `cat`，且其前不跟着 `The` 或 `the`。
-
-<pre>
-"(?&lt;!(T|t)he\s)(cat)" => The cat sat on <a href="#learn-regex"><strong>cat</strong></a>.
-</pre>
-
-[在线练习](https://regex101.com/r/8Efx5G/1)
-
-## 5. 标志
-
-标志也叫模式修正符，因为它可以用来修改表达式的搜索结果。
-这些标志可以任意的组合使用，它也是整个正则表达式的一部分。
-
-|标志|描述|
-|:----:|----|
-|i|忽略大小写。|
-|g|全局搜索。|
-|m|多行修饰符：锚点元字符 `^` `$` 工作范围在每行的起始。|
-
-### 5.1 忽略大小写 (Case Insensitive)
-
-修饰语 `i` 用于忽略大小写。
-例如，表达式 `/The/gi` 表示在全局搜索 `The`，在后面的 `i` 将其条件修改为忽略大小写，则变成搜索 `the` 和 `The`，`g` 表示全局搜索。
-
-<pre>
-"The" => <a href="#learn-regex"><strong>The</strong></a> fat cat sat on the mat.
-</pre>
-
-[在线练习](https://regex101.com/r/dpQyf9/1)
-
-<pre>
-"/The/gi" => <a href="#learn-regex"><strong>The</strong></a> fat cat sat on <a href="#learn-regex"><strong>the</strong></a> mat.
-</pre>
-
-[在线练习](https://regex101.com/r/ahfiuh/1)
-
-### 5.2 全局搜索 (Global search)
-
-修饰符 `g` 常用于执行一个全局搜索匹配，即（不仅仅返回第一个匹配的，而是返回全部）。
-例如，表达式 `/.(at)/g` 表示搜索 任意字符（除了换行）+ `at`，并返回全部结果。
-
-<pre>
-"/.(at)/" => The <a href="#learn-regex"><strong>fat</strong></a> cat sat on the mat.
-</pre>
-
-[在线练习](https://regex101.com/r/jnk6gM/1)
-
-<pre>
-"/.(at)/g" => The <a href="#learn-regex"><strong>fat</strong></a> <a href="#learn-regex"><strong>cat</strong></a> <a href="#learn-regex"><strong>sat</strong></a> on the <a href="#learn-regex"><strong>mat</strong></a>.
-</pre>
-
-[在线练习](https://regex101.com/r/dO1nef/1)
-
-### 5.3 多行修饰符 (Multiline)
-
-多行修饰符 `m` 常用于执行一个多行匹配。
-
-像之前介绍的 `(^,$)` 用于检查格式是否是在待检测字符串的开头或结尾。但我们如果想要它在每行的开头和结尾生效，我们需要用到多行修饰符 `m`。
-
-例如，表达式 `/at(.)?$/gm` 表示小写字符 `a` 后跟小写字符 `t` ，末尾可选除换行符外任意字符。根据 `m` 修饰符，现在表达式匹配每行的结尾。
-
-<pre>
-"/.at(.)?$/" => The fat
-                cat sat
-                on the <a href="#learn-regex"><strong>mat.</strong></a>
-</pre>
-
-[在线练习](https://regex101.com/r/hoGMkP/1)
-
-<pre>
-"/.at(.)?$/gm" => The <a href="#learn-regex"><strong>fat</strong></a>
-                  cat <a href="#learn-regex"><strong>sat</strong></a>
-                  on the <a href="#learn-regex"><strong>mat.</strong></a>
-</pre>
-
-[在线练习](https://regex101.com/r/E88WE2/1)
-
-### 6. 贪婪匹配与惰性匹配 (Greedy vs lazy matching)
-
-正则表达式默认采用贪婪匹配模式，在该模式下意味着会匹配尽可能长的子串。我们可以使用 `?` 将贪婪匹配模式转化为惰性匹配模式。
-
-<pre>
-"/(.*at)/" => <a href="#learn-regex"><strong>The fat cat sat on the mat</strong></a>. </pre>
-
-[在线练习](https://regex101.com/r/AyAdgJ/1)
-
-<pre>
-"/(.*?at)/" => <a href="#learn-regex"><strong>The fat</strong></a> cat sat on the mat. </pre>
-
-[在线练习](https://regex101.com/r/AyAdgJ/2)
-
-## 贡献
-
-* 报告问题
-* 开放合并请求
-* 传播此文档
-* 直接和我联系 ziishaned@gmail.com 或 [![Twitter URL](https://img.shields.io/twitter/url/https/twitter.com/ziishaned.svg?style=social&label=Follow%20%40ziishaned)](https://twitter.com/ziishaned)
-
-## 许可证
-
-MIT &copy; [Zeeshan Ahmad](https://twitter.com/ziishaned)
