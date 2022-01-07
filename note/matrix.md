@@ -22,13 +22,13 @@
 
 `（Rank(A) = n）  ==    det(A) != 0`
 
-<img src="C:/Users/pc/AppData/Roaming/Typora/typora-user-images/image-20220106205331301.png" alt="image-20220106205331301" style="zoom:50%;" />
+<img src="https://s2.loli.net/2022/01/07/IgaFjCS3EeizLbB.png" alt="image-20220106205331301" style="zoom:50%;" />
 
 
 
 ## **向量点乘  dot product  :**
 
-<img src="https://s2.loli.net/2022/01/07/z3cJeXqGYIxntp4.png" alt="image-20220106211343658" style="zoom:50%;" />
+<img src="https://s2.loli.net/2022/01/07/oWgSi2Ltk6pPcXY.png" alt="image-20220106211343658" style="zoom:50%;" />
 
 两个列向量点乘逻辑本质：具有对称性，一个向量转置成为线性变换矩阵把第二个向量压缩到一维。
 
@@ -36,7 +36,7 @@
 
 算数形式：
 
-<img src="C:/Users/pc/AppData/Roaming/Typora/typora-user-images/image-20220106211554738.png" alt="image-20220106211554738" style="zoom:50%;" />
+<img src="https://s2.loli.net/2022/01/07/jknXCNf1coLxI5d.png" alt="image-20220106211554738" style="zoom:50%;" />
 
 计算机图形学意义：判断向量夹角是否大于90°
 
@@ -58,7 +58,7 @@
 
 算数形式：
 
-<img src="C:/Users/pc/AppData/Roaming/Typora/typora-user-images/image-20220106213335817.png" alt="image-20220106213335817" style="zoom: 25%;" />
+<img src="https://s2.loli.net/2022/01/07/yOm3IDBMHl1hw7o.png" alt="image-20220106213335817" style="zoom: 25%;" />
 
 计算机图形学意义：判断两个向量之间的相对方向。
 
@@ -84,7 +84,7 @@
 
 ## **线性的严格定义 :**
 
-![image-20220106223333165](C:/Users/pc/AppData/Roaming/Typora/typora-user-images/image-20220106223333165.png)
+![image-20220106223333165](https://s2.loli.net/2022/01/07/LFcegXC3MWjf2xH.png)
 
 多项式求导积分也是线性变换。
 
