@@ -4,9 +4,9 @@
 
 > `git [command]`
 >
-> <img src="C:\Users\pc\AppData\Roaming\Typora\typora-user-images\image-20211224113123748.png" alt="image-20211224113123748" style="zoom:150%;" />
+> <img src="https://s2.loli.net/2022/01/06/i5cTyXetLVJSj39.png" alt="image-20211224113123748" style="zoom:150%;" />
 >
-> ![image-20211223224520156](C:\Users\pc\AppData\Roaming\Typora\typora-user-images\image-20211223224520156.png)
+> ![image-20211223224520156](https://s2.loli.net/2022/01/06/mIqvswHK7OaJbDc.png)
 
 ### Git常见命令
 
