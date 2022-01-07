@@ -28,7 +28,7 @@
 
 ## **向量点乘  dot product  :**
 
-<img src="C:/Users/pc/AppData/Roaming/Typora/typora-user-images/image-20220106211343658.png" alt="image-20220106211343658" style="zoom:50%;" />
+<img src="https://s2.loli.net/2022/01/07/z3cJeXqGYIxntp4.png" alt="image-20220106211343658" style="zoom:50%;" />
 
 两个列向量点乘逻辑本质：具有对称性，一个向量转置成为线性变换矩阵把第二个向量压缩到一维。
 
