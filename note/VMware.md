@@ -6,13 +6,19 @@
 
 4. **安装Terminator**   ：  [How to Install Terminator, a Linux Terminal Emulator on Steroids](https://dev.to/xeroxism/how-to-install-terminator-a-linux-terminal-emulator-on-steroids-1m3h)
 
-5. **安装GCC** ：   ![image-20211222165907518](C:\Users\pc\AppData\Roaming\Typora\typora-user-images\image-20211222165907518.png)
+5. **虚拟机共享VPN**：https://www.codenong.com/js6c7abd4adc9b/
 
-6. **安装VScode** :  `......`
+   ipv4:192.168.88.1   端口：15732
 
-7. **CMakeLists.txt** :   `cmake..` :  以外部编译的方式生成`make`文件           `make`  ：  编译
+   ![image-20220115095436049](https://s2.loli.net/2022/01/15/l9dB8Ivr3xXtE51.png)
 
-8. **Vscode Debug** :  `launch.json` ： for debug
+6. **安装GCC** ：   ![image-20211222165907518](C:\Users\pc\AppData\Roaming\Typora\typora-user-images\image-20211222165907518.png)
+
+7. **安装VScode** :  `......`
+
+8. **CMakeLists.txt** :   `cmake..` :  以外部编译的方式生成`make`文件           `make`  ：  编译
+
+9. **Vscode Debug** :  `launch.json` ： for debug
 
    ```Json
    {
@@ -78,7 +84,6 @@
        "version": "2.0.0"
    }			
    ```
-
 
 
 
